@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AR Marketing | Waste Management Infrastructure</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600&family=Share+Tech+Mono&display=swap">
+<style>
+:root{--bg:#0b0716;--bg2:#150c2a;--ink:#f1ecff;--mute:#a99fc9;--line:#36205c;--yel:#ffd300;--red:#f92b32;--mag:#ff2a6d;--cy:#05d9e8;--c:#05d9e8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Chakra Petch',system-ui,sans-serif;margin:0;line-height:1.08;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(4,20,26,.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font:600 1.1rem 'Chakra Petch',sans-serif;display:flex;gap:.6rem;align-items:center;text-decoration:none}
+.brand i{width:20px;height:20px;border-radius:50%;border:3px solid var(--yel);border-right-color:var(--red);animation:spin 6s linear infinite}
+nav{display:flex;gap:1.4rem}
+nav a{text-decoration:none;color:var(--mute);font-size:.92rem;transition:color .2s}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+:focus-visible{outline:2px solid var(--yel);outline-offset:3px}
+.hero{position:relative;min-height:calc(100svh - 60px);display:flex;align-items:center;overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;z-index:2;padding:4rem 0}
+.hero h1{font-size:clamp(2.3rem,6.4vw,4.8rem);font-weight:700;max-width:14em;text-shadow:0 0 30px var(--bg)}
+.hero h1 span{display:block;overflow:hidden}
+.hero h1 span b{display:block;font-weight:inherit;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span:nth-child(2) b{animation-delay:.18s}
+.hero p{max-width:34rem;color:var(--mute);margin:1.4rem 0 2rem;text-shadow:0 0 20px var(--bg);animation:fade 1s .7s both}
+.btns{display:flex;flex-wrap:wrap;gap:.9rem;animation:fade 1s .9s both}
+.btn{display:inline-block;padding:.85rem 1.6rem;border-radius:4px;font:600 1rem 'Chakra Petch',sans-serif;text-decoration:none;border:1px solid var(--yel);transition:box-shadow .25s,background .25s}
+.btn.p{background:var(--yel);color:#1a1500}
+.btn.p:hover{box-shadow:0 0 28px rgba(255,211,0,.55)}
+.btn.s{color:var(--yel)}
+.btn.s:hover{background:rgba(255,211,0,.1)}
+.status{position:absolute;z-index:2;right:1.25rem;bottom:1.25rem;display:flex;gap:.6rem;align-items:center;font-size:.85rem;color:var(--mute);padding:.5rem .9rem;border:1px solid var(--line);border-radius:99px;background:rgba(4,20,26,.7)}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c);transition:background .5s,box-shadow .5s}
+section.blk{padding:6rem 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,4vw,2.9rem);max-width:18em}
+.lead{color:var(--mute);max-width:38rem;margin:1rem 0 0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem;position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:19px;height:2px;background:linear-gradient(90deg,#3dd6ff,#9dff3d,#ffd300,#ff6a3d);transform:scaleX(0);transform-origin:left;transition:transform 1.6s cubic-bezier(.3,.7,.2,1)}
+.steps.in::before{transform:scaleX(1)}
+.step{position:relative;padding-top:3.2rem}
+.step em{position:absolute;top:0;left:0;width:40px;height:40px;border-radius:50%;background:var(--bg);border:2px solid var(--line);display:grid;place-items:center;font:600 1rem 'Chakra Petch',sans-serif;font-style:normal;transition:border-color .6s,color .6s}
+.steps.in .step em{border-color:var(--yel);color:var(--yel)}
+.step h3{font-size:1.3rem;margin-bottom:.5rem}
+.step p{margin:0;color:var(--mute);font-size:.95rem}
+.sys{display:grid;grid-template-columns:260px 1fr;gap:3rem;margin-top:3rem;align-items:start}
+.tabs{display:flex;flex-direction:column;gap:.5rem}
+.tab{all:unset;cursor:pointer;display:flex;align-items:center;gap:.9rem;padding:.95rem 1.1rem;border:1px solid var(--line);border-radius:6px;font:600 1.05rem 'Chakra Petch',sans-serif;color:var(--mute);transition:border-color .25s,color .25s,background .25s}
+.tab i{width:10px;height:10px;border-radius:50%;background:var(--k);box-shadow:0 0 10px var(--k)}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected=true]{color:var(--ink);border-color:var(--k);background:linear-gradient(90deg,color-mix(in srgb,var(--k) 16%,transparent),transparent)}
+.tab:focus-visible{outline:2px solid var(--yel);outline-offset:3px}
+.panel{display:grid;grid-template-columns:220px 1fr;gap:2.5rem;align-items:center;padding:2rem;border:1px solid var(--line);border-radius:10px;background:var(--bg2);min-height:330px;animation:swap .45s both}
+.orb{position:relative;width:200px;aspect-ratio:1;display:grid;place-items:center}
+.orb::before,.orb::after{content:"";position:absolute;inset:0;border-radius:50%}
+.orb::before{background:conic-gradient(var(--c),transparent 35%,var(--c) 65%,transparent);-webkit-mask:radial-gradient(circle,transparent 62%,#000 64%);mask:radial-gradient(circle,transparent 62%,#000 64%);animation:spin 7s linear infinite}
+.orb::after{inset:14%;border:1px dashed var(--c);opacity:.5;animation:spin 14s linear infinite reverse}
+.orb b{font:700 1.7rem 'Chakra Petch',sans-serif;color:var(--c);text-shadow:0 0 18px var(--c)}
+.panel h3{font-size:1.7rem;color:var(--c)}
+.panel p{color:var(--mute);margin:.7rem 0 1.1rem}
+.panel ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.panel li{padding:.3rem .8rem;border:1px solid var(--c);border-radius:99px;font-size:.85rem}
+.cl{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:3rem;background:var(--line);border:1px solid var(--line)}
+.cl div{background:var(--bg);padding:1.6rem 1.3rem;font:600 1.15rem 'Chakra Petch',sans-serif;transition:background .3s}
+.cl div:hover{background:var(--bg2)}
+.cl small{display:block;margin-top:.4rem;font:400 .88rem Manrope,sans-serif;color:var(--mute)}
+.cta{text-align:left;background:radial-gradient(60% 120% at 85% 100%,rgba(31,122,61,.45),transparent),var(--bg)}
+.cta .btns{margin-top:2rem;animation:none}
+footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes swap{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+@media (max-width:820px){
+nav{display:none}
+.steps{grid-template-columns:1fr 1fr}.steps::before{display:none}
+.sys{grid-template-columns:1fr;gap:1.5rem}
+.tabs{flex-direction:row;overflow-x:auto;padding-bottom:.3rem}
+.tab{white-space:nowrap}
+.panel{grid-template-columns:1fr;justify-items:start;padding:1.5rem}
+.orb{width:150px}
+.cl{grid-template-columns:1fr 1fr}
+.status{left:1.25rem;right:auto}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.steps::before{transform:scaleX(1)}}
+
+/* cyberpunk layer */
+header{background:rgba(11,7,22,.82);border-bottom:1px solid var(--mag);box-shadow:0 0 22px rgba(255,42,109,.25)}
+.brand i{border-color:var(--yel);border-right-color:var(--mag);box-shadow:0 0 10px var(--mag)}
+nav a:hover,nav a:focus-visible{color:var(--cy);text-shadow:0 0 10px var(--cy)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:98;background:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 3px)}
+.grid{position:absolute;left:-20%;right:-20%;bottom:0;height:45%;z-index:1;pointer-events:none;opacity:.4;transform:perspective(300px) rotateX(58deg);transform-origin:bottom;background:linear-gradient(var(--mag) 1px,transparent 1px) 0 0/100% 48px,linear-gradient(90deg,var(--mag) 1px,transparent 1px) 0 0/60px 100%;-webkit-mask:linear-gradient(transparent,#000);mask:linear-gradient(transparent,#000);animation:gridmove 2s linear infinite}
+.hero h1 span b{animation:glitch 6s 2.5s infinite,rise .9s cubic-bezier(.2,.8,.2,1) both}
+h2::after{content:"";display:block;width:70px;height:3px;margin-top:.9rem;background:var(--yel);box-shadow:0 0 14px var(--yel),8px 0 0 var(--mag)}
+.btn{border:0;border-radius:0;padding:.95rem 1.9rem;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.btn.p:hover{box-shadow:none;background:#fff27a}
+.btn.s{background:rgba(5,217,232,.12);color:var(--cy);box-shadow:inset 0 0 0 1px var(--cy)}
+.btn.s:hover{background:rgba(5,217,232,.28)}
+.status{border-color:var(--cy);border-radius:0;font-family:'Share Tech Mono',monospace;background:rgba(11,7,22,.78);color:var(--cy)}
+.steps::before{background:linear-gradient(90deg,var(--cy),var(--mag),var(--yel));box-shadow:0 0 10px var(--mag)}
+.steps.in .step em{border-color:var(--cy);color:var(--cy);box-shadow:0 0 14px rgba(5,217,232,.5)}
+.tab{border-radius:0;border-left:3px solid var(--k);clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%)}
+.panel{border-radius:0;border-left:3px solid var(--c);clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));background:linear-gradient(135deg,rgba(255,255,255,.04),transparent 55%),var(--bg2)}
+.panel li{border-radius:0;font-family:'Share Tech Mono',monospace}
+.cl div:hover{background:var(--bg2);box-shadow:inset 3px 0 var(--mag)}
+.cl small{font-family:'Share Tech Mono',monospace}
+.cta{background:radial-gradient(60% 120% at 85% 100%,rgba(255,42,109,.35),transparent),radial-gradient(50% 90% at 10% 0,rgba(5,217,232,.16),transparent),var(--bg)}
+html.cur,html.cur *{cursor:none!important}
+#ring,#dot{position:fixed;left:0;top:0;pointer-events:none;z-index:99}
+#dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--yel);box-shadow:0 0 10px var(--yel)}
+#ring{width:38px;height:38px;margin:-19px 0 0 -19px}
+#ring i{position:absolute;inset:0;border:1px dashed var(--cy);border-radius:50%;box-shadow:0 0 12px rgba(5,217,232,.5);animation:spin 5s linear infinite;transition:transform .25s,border-color .25s}
+#ring::before,#ring::after{content:"";position:absolute;background:var(--cy);left:50%;top:50%}
+#ring::before{width:52px;height:1px;margin-left:-26px}
+#ring::after{width:1px;height:52px;margin-top:-26px}
+#ring.hot i{transform:scale(1.7);border-color:var(--mag);box-shadow:0 0 16px var(--mag)}
+#ring.hot::before,#ring.hot::after{background:var(--mag)}
+#ring.down i{transform:scale(.6)}
+#lab{position:absolute;left:28px;top:16px;font:.7rem 'Share Tech Mono',monospace;color:var(--cy);white-space:nowrap;text-shadow:0 0 8px var(--cy)}
+@keyframes gridmove{to{background-position:0 48px,0 0}}
+@keyframes glitch{0%,91%,100%{text-shadow:0 0 30px var(--bg)}93%{text-shadow:-3px 0 var(--mag),3px 0 var(--cy)}95%{text-shadow:3px 0 var(--mag),-3px 0 var(--cy)}97%{text-shadow:-2px 0 var(--mag),2px 0 var(--cy)}}
+</style>
+</head>
+<body>
+<div id="dot" hidden></div><div id="ring" hidden><i></i><span id="lab"></span></div>
+<header><div class="wrap">
+<a class="brand" href="#top"><i></i>AR Marketing</a>
+<nav><a href="#loop">The loop</a><a href="#systems">Systems</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero">
+<canvas id="cv" aria-hidden="true"></canvas><div class="grid" aria-hidden="true"></div>
+<div class="wrap">
+<h1><span><b>Waste is a system.</b></span><span><b>We build the infrastructure that closes the loop.</b></span></h1>
+<p>Sewage and effluent plants, biogas units, incinerators and organised scrap recovery, planned as one connected system for your site.</p>
+<div class="btns"><a class="btn p" href="tel:+919895362143">+91 9895 362143</a><a class="btn s" href="#contact">Reach us</a></div>
+</div>
+<div class="status" aria-live="off"><i id="dot"></i><span id="now">Now running: STP</span></div>
+</section>
+
+<section class="blk" id="loop"><div class="wrap">
+<h2>From waste stream to usable resource</h2>
+<p class="lead">Every site produces a different mix. The infrastructure follows the same four stages.</p>
+<div class="steps" id="steps">
+<div class="step"><em>1</em><h3>Collect</h3><p>Wet, dry, sewage and effluent are separated at source before they mix.</p></div>
+<div class="step"><em>2</em><h3>Treat</h3><p>STP and ETP for water, biogas for organics, incinerators for what remains.</p></div>
+<div class="step"><em>3</em><h3>Recover</h3><p>Water, gas, compost and scrap come out as material you can use or sell.</p></div>
+<div class="step"><em>4</em><h3>Return</h3><p>Reused water and energy go back to the site. Residue is disposed of safely.</p></div>
+</div>
+</div></section>
+
+<section class="blk" id="systems"><div class="wrap">
+<h2>Five systems, one plan</h2>
+<p class="lead">Select a system to see what it treats and where it fits.</p>
+<div class="sys">
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="panel" id="panel" role="tabpanel"></div>
+</div>
+</div></section>
+
+<section class="blk" id="clients"><div class="wrap">
+<h2>Built for the sites that produce the most waste</h2>
+<div class="cl">
+<div>Industry<small>Factories and processing units</small></div>
+<div>Real estate<small>Apartments, townships, campuses</small></div>
+<div>Municipal and government<small>Public facilities and civic bodies</small></div>
+<div>Homes, hotels, restaurants<small>Kitchens and residential blocks</small></div>
+</div>
+</div></section>
+
+<section class="blk cta" id="contact"><div class="wrap">
+<h2>Plan your waste infrastructure with us</h2>
+<p class="lead">Tell us the site, the type of waste and the volume. We will come back with the system that fits.</p>
+<div class="btns"><a class="btn p" href="tel:+919895362143">+91 9895 362143</a><a class="btn s" href="mailto:armarketingcompany@gmail.com">Email us</a></div>
+</div></section>
+</main>
+<footer><div class="wrap">&copy; AR Marketing. Waste management solutions.</div></footer>
+
+<script>
+const SYS=[
+{k:'#05d9e8',n:'STP',t:'Sewage treatment plants',d:'Treats sewage from buildings and townships so the water can be reused for flushing, gardening and cooling.',l:['Apartments','Hotels','Commercial campuses']},
+{k:'#b967ff',n:'ETP',t:'Effluent treatment plants',d:'Cleans industrial process water so discharge meets pollution-control norms and more of it returns to the plant.',l:['Factories','Food processing','Chemical and textile units']},
+{k:'#01ff9f',n:'Bio',t:'Biogas units',d:'Digests food and organic waste into gas for cooking and heating, leaving a residue that works as compost.',l:['Restaurants','Hotels','Canteens','Institutions']},
+{k:'#ff2a6d',n:'Inc',t:'Incinerators',d:'High-temperature disposal for waste that cannot be recycled or composted, with a controlled burn.',l:['Institutions','Industrial rejects']},
+{k:'#ffd300',n:'Scrap',t:'Scrap recovery',d:'Structured buying, grading and routing of metal, plastic and paper scrap to recyclers.',l:['Businesses','Real estate','Municipal sites']}
+];
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+function show(i){
+  const s=SYS[i];if(!s)return;
+  tabs.querySelectorAll('.tab').forEach((b,j)=>b.setAttribute('aria-selected',j===i));
+  panel.style.setProperty('--c',s.k);
+  panel.style.animation='none';panel.offsetWidth;panel.style.animation='';
+  panel.innerHTML='<div class="orb"><b>'+s.n+'</b></div><div><h3>'+s.t+'</h3><p>'+s.d+'</p><ul>'+s.l.map(x=>'<li>'+x+'</li>').join('')+'</ul></div>';
+}
+SYS.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.className='tab';b.role='tab';b.style.setProperty('--k',s.k);
+  b.innerHTML='<i></i>'+s.t;
+  b.onclick=()=>show(i);
+  tabs.appendChild(b);
+});
+show(0);
+
+/* scroll trigger for the loop line */
+new IntersectionObserver((e,o)=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}}),{threshold:.35}).observe(document.getElementById('steps'));
+
+/* hero: waste in, resources out */
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cols=SYS.map(s=>s.k);
+let W,H,cx,cy,R,parts=[],accent=cols[0],t=0,run=true,raf;const mouse={x:-999,y:-999};
+function size(){
+  const d=Math.min(devicePixelRatio||1,2),r=cv.getBoundingClientRect();
+  W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+  const wide=W>820;cx=wide?W*.72:W*.5;cy=wide?H*.5:H*.7;R=Math.min(W,H)*(wide?.2:.15);
+  ctx.fillStyle='#0b0716';ctx.fillRect(0,0,W,H);
+}
+function spawn(){
+  const s=Math.random()*4|0;let x,y;
+  if(s===0){x=Math.random()*W;y=-10}else if(s===1){x=W+10;y=Math.random()*H}else if(s===2){x=Math.random()*W;y=H+10}else{x=-10;y=Math.random()*H}
+  parts.push({x,y,m:0,c:'#8b8574',s:1+Math.random()*1.5,v:.7+Math.random()*.9});
+}
+function hex(a){return a}
+function hub(){
+  ctx.save();ctx.translate(cx,cy);
+  const g=ctx.createRadialGradient(0,0,R*.2,0,0,R*1.2);
+  g.addColorStop(0,accent+'40');g.addColorStop(1,'transparent');
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,R*1.2,0,7);ctx.fill();
+  ctx.strokeStyle=accent;ctx.lineWidth=1.5;ctx.globalAlpha=.8;
+  ctx.beginPath();ctx.arc(0,0,R,0,7);ctx.stroke();
+  ctx.globalAlpha=.45;ctx.setLineDash([6,10]);ctx.rotate(t*.004);
+  ctx.beginPath();ctx.arc(0,0,R*.78,0,7);ctx.stroke();
+  ctx.setLineDash([]);ctx.rotate(-t*.009);
+  for(let i=0;i<72;i++){const a=i/72*6.2832,l=i%6===0?12:6;
+    ctx.beginPath();ctx.moveTo(Math.cos(a)*(R*1.08),Math.sin(a)*(R*1.08));ctx.lineTo(Math.cos(a)*(R*1.08+l),Math.sin(a)*(R*1.08+l));ctx.stroke();}
+  ctx.restore();
+}
+function frame(){
+  t++;
+  ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;
+  ctx.fillStyle='rgba(11,7,22,.22)';ctx.fillRect(0,0,W,H);
+  const max=Math.min(320,W/4);
+  if(parts.length<max&&(t%2===0||reduce))spawn();
+  ctx.globalCompositeOperation='lighter';
+  for(let i=parts.length-1;i>=0;i--){
+    const p=parts[i];
+    if(p.m===0){
+      const dx=cx-p.x,dy=cy-p.y,d=Math.hypot(dx,dy)||1;
+      p.x+=dx/d*p.v*1.3-dy/d*.3;p.y+=dy/d*p.v*1.3+dx/d*.3;
+      const mx=p.x-mouse.x,my=p.y-mouse.y,md=Math.hypot(mx,my)||1;
+      if(md<150){const f=(150-md)/150*3.5;p.x+=mx/md*f;p.y+=my/md*f}
+      if(d<R){p.m=1;p.c=Math.random()<.6?accent:cols[Math.random()*5|0];p.a=Math.atan2(p.y-cy,p.x-cx);p.r=R;}
+      ctx.globalAlpha=.55;
+    }else if(p.m===2){
+      p.x+=p.vx;p.y+=p.vy;p.vx*=.95;p.vy*=.95;p.l-=.018;
+      if(p.l<=0){parts.splice(i,1);continue}
+      ctx.globalAlpha=p.l;
+    }else{
+      p.a+=.011*p.v;p.r+=.85*p.v;p.x=cx+Math.cos(p.a)*p.r;p.y=cy+Math.sin(p.a)*p.r;
+      const life=1-(p.r-R)/(R*2);
+      if(life<=0){parts.splice(i,1);continue}
+      ctx.globalAlpha=life;
+    }
+    ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,7);ctx.fill();
+  }
+  ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;
+  hub();
+}
+function loop(){if(run){frame();raf=requestAnimationFrame(loop)}}
+size();addEventListener('resize',()=>{size();parts=[]});
+if(reduce){for(let i=0;i<260;i++){spawn();const p=parts[i];p.x=Math.random()*W;p.y=Math.random()*H;}for(let i=0;i<60;i++)frame();}
+else{loop();
+  new IntersectionObserver(e=>{run=e[0].isIntersecting;if(run){cancelAnimationFrame(raf);loop()}}).observe(cv);
+  const now=document.getElementById('now'),dot=document.getElementById('dot');let n=0;
+  setInterval(()=>{n=(n+1)%5;accent=cols[n];now.textContent='Now running: '+SYS[n].t;dot.style.setProperty('--c',accent)},2600);
+}
+
+/* interactive cursor */
+if(matchMedia('(pointer:fine)').matches){
+  const ring=document.getElementById('ring'),dot=document.getElementById('dot'),lab=document.getElementById('lab');
+  ring.hidden=dot.hidden=false;document.documentElement.classList.add('cur');
+  let tx=innerWidth/2,ty=innerHeight/2,rx=tx,ry=ty;
+  addEventListener('pointermove',e=>{
+    tx=e.clientX;ty=e.clientY;dot.style.transform='translate('+tx+'px,'+ty+'px)';
+    const r=cv.getBoundingClientRect();mouse.x=tx-r.left;mouse.y=ty-r.top;
+    lab.textContent='x'+(tx|0)+' y'+(ty|0);
+    ring.classList.toggle('hot',!!e.target.closest('a,button,.cl div'));
+  });
+  document.addEventListener('pointerleave',()=>{mouse.x=mouse.y=-999});
+  (function tick(){rx+=(tx-rx)*.16;ry+=(ty-ry)*.16;ring.style.transform='translate('+rx+'px,'+ry+'px)';requestAnimationFrame(tick)})();
+  addEventListener('pointerdown',e=>{
+    ring.classList.add('down');
+    if(e.target.closest('.hero')&&!e.target.closest('a')){
+      const r=cv.getBoundingClientRect();
+      for(let i=0;i<40;i++){const a=Math.random()*6.283,v=1+Math.random()*4.5;
+        parts.push({x:e.clientX-r.left,y:e.clientY-r.top,m:2,c:cols[Math.random()*5|0],s:1+Math.random()*2,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1})}
+    }
+  });
+  addEventListener('pointerup',()=>ring.classList.remove('down'));
+}
+</script>
+</body>
+</html>
